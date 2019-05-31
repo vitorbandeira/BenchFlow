@@ -10,9 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_28_161542) do
+ActiveRecord::Schema.define(version: 2019_05_31_021501) do
 
-  
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.integer "publication_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["publication_id"], name: "index_comments_on_publication_id"
+  end
+
+  create_table "ej_publications", force: :cascade do |t|
+    t.integer "ej_id"
+    t.integer "publication_id"
+    t.datetime "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ej_id"], name: "index_ej_publications_on_ej_id"
+    t.index ["publication_id"], name: "index_ej_publications_on_publication_id"
+  end
+
+  create_table "ejs", force: :cascade do |t|
+    t.string "name"
+    t.integer "university_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["university_id"], name: "index_ejs_on_university_id"
+  end
+
+  create_table "publications", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "universities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -26,12 +64,5 @@ ActiveRecord::Schema.define(version: 2019_05_28_161542) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-  
-  create_table "publications", force: :cascade do |t|
-    t.string "title"
-    t.text "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-  
+
 end
