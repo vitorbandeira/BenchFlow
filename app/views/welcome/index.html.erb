@@ -2,6 +2,7 @@
 <%= render 'layouts/sidebar.html.erb' %>
 <div class="wrapper">
     <div class="main-container">
-        oibb
+        <%= render file: "publications/new", locals: {publication: @publication, url: publications_path, method: :post} %>
+        <%= render @publications %>
     </div>
 </div>
