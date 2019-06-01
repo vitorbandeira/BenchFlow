@@ -28,6 +28,9 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
+        format.js do
+          @publication = Publication.find(@comment.publication_id)
+        end
         format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else

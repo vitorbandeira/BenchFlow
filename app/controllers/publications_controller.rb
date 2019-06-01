@@ -28,7 +28,7 @@ class PublicationsController < ApplicationController
 
     respond_to do |format|
       if @publication.save
-        format.html { redirect_to @publication, notice: 'Publication was successfully created.' }
+        format.html { redirect_to publications_path, notice: 'Publication was successfully created.' }
         format.json { render :show, status: :created, location: @publication }
       else
         format.html { render :new }
@@ -69,6 +69,6 @@ class PublicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def publication_params
-      params.require(:publication).permit(:title, :content)
+      params.require(:publication).permit(:title, :content, :user_id)
     end
 end
