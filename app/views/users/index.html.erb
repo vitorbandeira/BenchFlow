@@ -1,0 +1,30 @@
+<div class="row justify-content-md-center">
+<div class="col-md-auto">
+
+<div class="container" align="center">
+    
+    <h2 class="subtitle-backoffice">Users</h2>
+    
+    <table class="table table-hover table-striped table-responsive">
+        <thead>
+            <tr>    
+                <th>Nome</th>
+                <th>Email</th>
+                <th colspan="2"></th>
+            </tr>
+        </thead>
+        <tbody >
+            <% @user.each do |user| %>
+            <tr >
+                <td><%= user.name %>
+                <td><%= user.email %> </td>
+                <td>
+                    <%= link_to 'Editar', edit_user_path(user), class:"btn btn-primary btn-sm "%> 
+                    <%= link_to "Excluir", user, method: :delete, data: { confirm: 'Essa exclusão será definitiva.', title: "Você tem certeza?", commit:"Sim", cancel:"Cancelar" }, class:"btn btn-warning btn-sm"%>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+<br>
