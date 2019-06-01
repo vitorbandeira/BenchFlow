@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :ej
-  has_many :publications
+  has_many :publications, dependent: :nullify
 end
