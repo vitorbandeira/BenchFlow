@@ -1,0 +1,20 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.wrapper {
+    min-height: 100vh;
+    background-color: #efdfe0;
+
+    padding-top: calc(5rem + 2.25rem);     //Header space + padding
+    padding-left: calc(18vw + 1.75rem);    //Sidebar space + padding
+    padding-right: 1.75rem;
+
+    .main-container {
+        min-height: 80vh;
+        padding: 2.5rem 3rem;
+
+        background-color: #f3f1f3;
+        border-radius: 5px;
+    }
+}

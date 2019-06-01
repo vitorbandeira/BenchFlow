@@ -1,0 +1,66 @@
+.header-navbar {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Arima Madurai', cursive;
+
+    height: 5rem;
+    width: 100vw;
+    background-color: #d8495a;
+
+    padding: 0em 1.5em;
+
+    -webkit-box-shadow: 0px 4px 17px -2px rgba(122,122,122,0.6);
+    -moz-box-shadow: 0px 4px 17px -2px rgba(122,122,122,0.6);
+    box-shadow: 0px 4px 17px -2px rgba(122,122,122,0.6);
+
+    .header-start {
+        width: 45%;
+        display: flex;
+        justify-content: space-between;
+
+        .logo {
+            font-size: 2.5rem;
+            align-self: center;
+            text-decoration: none;
+            color: white;
+            
+            .bench {
+                font-weight: 700;
+            }
+        }
+
+        .header-section {
+            font-size: 1.4rem;
+            font-weight: 700;
+            align-self: flex-end;
+            padding: 1rem 2rem;
+            border-radius: 5px 5px 0 0;
+        
+            #mej-link {
+                padding: 0 1rem;
+            }
+        }
+
+        .section-active {
+            background-color: #ef818e;
+        }
+
+    }
+
+    .header-link {
+        text-decoration: none;
+        color: white;
+    }
+
+    .header-link:hover {
+        color: #ffbdbd;
+    }
+
+    .header-end {
+        padding: 2rem;
+        align-self: center;
+        font-size: 1.35rem;
+    }
+
+}

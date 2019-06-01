@@ -1,0 +1,18 @@
+<div class="header-navbar">
+    <div class="header-start">
+        <%= link_to root_path, class: "logo" do %>
+            <b>bench</b>flow
+        <% end %>
+        <div class="header-section section-active">
+            <%= link_to 'Minha EJ', root_path, class: "header-link" %>
+        </div>
+        <div class="header-section">
+            <%= link_to 'MEJ', root_path, class: "header-link", id: "mej-link" %>
+        </div>
+    </div>
+    <div class="header-end">
+        <%= link_to root_path, class: "logo header-link" do %>
+            <%= fa_icon "bars" %>
+        <% end %>
+    </div>
+ </div>
