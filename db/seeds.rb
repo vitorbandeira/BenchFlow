@@ -6,22 +6,24 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+University.delete_all
 u1 = University.create!(name: "Universidade de Brasilia")
 
+Ej.destroy_all
 ej1 = Ej.create!(name: "CJR", university_id: u1.id)
 
-users = User.create([{  name: 'Admin', 
-                        email:'admin@admin.com',
-                        password:'123456',
-                        password_confirmation: '123456',
-                        admin:true,
-                        ej_id: ej1.id }, 
-                    {   name: 'User', 
-                        email:'user@user.com',
-                        password:'123456',
-                        password_confirmation: '123456',
-                        ej_id: ej1.id }
-])
+User.destroy_all
+u1 = User.create(   name: 'Admin', 
+                    email:'admin@admin.com',
+                    password:'123456',
+                    password_confirmation: '123456',
+                    admin:true,
+                    ej_id: ej1.id) 
+u2 = User.create(   name: 'User', 
+                    email:'user@user.com',
+                    password:'123456',
+                    password_confirmation: '123456',
+                    ej_id: ej1.id)
 
-p1 = Publication.create!()
+Publication.destroy_all
+p1 = Publication.create!(title: "First Post!!!", content: "Testaaaaaando esse poooooosssttttt.", user: u1)
