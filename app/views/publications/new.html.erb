@@ -1,5 +1,10 @@
-<h1>New Publication</h1>
-
-<%= render 'publications/form', publication: @publication %>
-
-<%= link_to 'Back', publications_path %>
+<%= simple_form_for(@publication) do |f| %>
+   <div class="form-inputs">
+    <%= f.text_field :title %>
+    <%= f.trix_editor :content %>
+    <%= f.association :user, as: :hidden, input_html: { value: current_user.id } %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
