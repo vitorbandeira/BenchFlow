@@ -1,7 +1,7 @@
 <div class="card p-3 m-2 publication-box">
   <h5><%= publication.title %></h5>
   <p>Autor: <%= publication.user.name %></p>
-  <p><%= publication.content %></p>
+  <p><%= publication.content.html_safe %></p>
   <div class="row">
     <%#= link_to 'Show', publication, class: 'btn btn-outline-info mx-2' %>
     <%= link_to 'Editar', edit_publication_path(publication), class: 'btn btn-outline-warning mx-2' %>

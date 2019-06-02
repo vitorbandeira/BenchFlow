@@ -1,3 +1,67 @@
 // Place all the styles related to the Publications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.publi-form {
+    margin-top: 0;
+    width: 63vw;
+
+    textarea:focus, input:focus{
+        outline: none;
+    }
+
+
+    .form-title {
+        width: 100%;
+
+        padding: 2.5rem 1rem 0 1rem;
+        border-style: solid;
+        border: none;
+        border-radius: 5px 5px 0 0;
+
+        font-size: 1.2rem;
+    }
+
+    .form-text {
+        background-color: white;
+        padding: 0.5rem 1rem 3rem;
+        outline: none;
+        margin-top: 0;
+        border: none;
+        border-radius: 0 0 5px 5px;
+
+        blockquote {
+            font-style: italic;
+        }
+        pre {
+            background-color: rgb(239,240,241);
+        }
+    }
+
+    .btn {
+        position: relative;
+        float: right;
+        bottom: 3.8rem;
+        right: 0.6rem;
+    }
+}
+
+trix-toolbar {
+    .trix-button-group {
+        margin-bottom: 0 !important;
+        padding: 0.2rem;
+        position: relative;
+        bottom: 3.8rem;
+        border: none !important;
+        width: 95%;
+
+        button {
+            border-bottom: none !important;
+            padding-bottom: 0.1rem;
+        }
+    }
+
+    .trix-button-row {
+        height: 0;
+    }
+}
