@@ -32,10 +32,10 @@ class CommentsController < ApplicationController
         format.js do
           @publication = Publication.find(@comment.publication_id)
         end
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+        format.html { redirect_to publication_path(@publication), notice: 'Comentário foi criado com sucesso.' }
         format.json { render :show, status: :created, location: @comment }
       else
-        format.html { render :new }
+        format.html { redirect_to publication_path(@publication) }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
@@ -44,12 +44,13 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
   def update
+    @publication = Publication.find(@comment.publication_id)
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
+        format.html { redirect_to publication_path(@publication), notice: 'Comentário foi atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @comment }
       else
-        format.html { render :edit }
+        format.html { redirect_to publication_path(@publication) }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
@@ -58,9 +59,10 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
+    @publication = Publication.find(@comment.publication_id)
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
+      format.html { redirect_to publication_path(@publication), notice: 'Comentário foi excluído com sucesso.' }
       format.json { head :no_content }
     end
   end

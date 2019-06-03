@@ -39,6 +39,13 @@ pre {
             font-weight: lighter;
             font-size: 1.2rem;
         }
+        .date {
+            font-size: 1rem;
+            font-weight: lighter;
+            float: right;
+            color: #e45e6e;
+            text-transform: lowercase;
+        }
     }
     .publi-box {
         background-color: #ffffff;
@@ -69,6 +76,11 @@ pre {
 
         .dropdown-item {
             color: #d8495a;
+        }
+
+        .publi-answers {
+            color: #ef818e;
+            text-decoration: none;
         }
     }
 }
@@ -120,24 +132,23 @@ pre {
     .btn-light {
         right: 1rem;
     }
-}
-
-trix-toolbar {
-    .trix-button-group {
-        margin-bottom: 0 !important;
-        padding: 0.2rem;
-        position: relative;
-        bottom: 4.5rem;
-        border: none !important;
-        width: 95%;
-
-        button {
-            border-bottom: none !important;
-            padding-bottom: 0.1rem;
+    trix-toolbar {
+        .trix-button-group {
+            margin-bottom: 0 !important;
+            padding: 0.2rem;
+            position: relative;
+            bottom: 4.5rem;
+            border: none !important;
+            width: 95%;
+    
+            button {
+                border-bottom: none !important;
+                padding-bottom: 0.1rem;
+            }
         }
-    }
-
-    .trix-button-row {
-        height: 0;
+    
+        .trix-button-row {
+            height: 0;
+        }
     }
 }
