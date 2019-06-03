@@ -1,6 +1,12 @@
 <h1>Editing Publication</h1>
 
-<%= render 'form', publication: @publication %>
+<%= simple_form_for(@publication) do |f| %>
+   <div class="publi-form">
+    <%= f.text_field :title, class: "form-title", placeholder: "Título" %>
+    <%= f.trix_editor :content, class: "form-text", placeholder: "Compartilhe algo..." %>
+    <%= f.association :user, as: :hidden, input_html: { value: current_user.id } %>
+    <%= f.button :submit, "Publicar", class: "btn btn-success" %>
+    <%= link_to 'Voltar', root_path, class: "btn btn-light" %>
+  </div>
+<% end %>
 
-<%= link_to 'Show', @publication %> |
-<%= link_to 'Back', publications_path %>

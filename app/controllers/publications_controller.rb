@@ -1,4 +1,5 @@
 class PublicationsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_publication, only: [:show, :edit, :update, :destroy]
 
   # GET /publications
@@ -28,10 +29,10 @@ class PublicationsController < ApplicationController
 
     respond_to do |format|
       if @publication.save
-        format.html { redirect_to publications_path, notice: 'Publication was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Publication was successfully created.' }
         format.json { render :show, status: :created, location: @publication }
       else
-        format.html { render :new }
+        format.html { redirect_to root_path }
         format.json { render json: @publication.errors, status: :unprocessable_entity }
       end
     end
@@ -42,10 +43,10 @@ class PublicationsController < ApplicationController
   def update
     respond_to do |format|
       if @publication.update(publication_params)
-        format.html { redirect_to @publication, notice: 'Publication was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Publication was successfully updated.' }
         format.json { render :show, status: :ok, location: @publication }
       else
-        format.html { render :edit }
+        format.html { redirect_to root_path }
         format.json { render json: @publication.errors, status: :unprocessable_entity }
       end
     end
@@ -56,7 +57,7 @@ class PublicationsController < ApplicationController
   def destroy
     @publication.destroy
     respond_to do |format|
-      format.html { redirect_to publications_url, notice: 'Publication was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Publication was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

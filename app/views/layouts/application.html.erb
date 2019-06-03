@@ -13,6 +13,17 @@
   </head>
 
   <body>
-    <%= yield %>
+    <% unless current_page?(new_user_session_path) or current_page?(new_user_registration_path) or current_page?(new_user_password_path) %>
+      <%= render 'layouts/header' %>
+      <%= render 'layouts/sidebar.html.erb' %>
+      <div class="wrapper">
+          <p id="notice"><%= notice %></p>
+          <div class="main-container">
+              <%= yield %>
+          </div>
+      </div>
+    <% else %>
+      <%= yield %>
+    <% end %>
   </body>
 </html>

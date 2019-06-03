@@ -1,18 +1,41 @@
-<div class="card p-3 m-2 publication-box">
-  <h5><%= publication.title %></h5>
-  <p>Autor: <%= publication.user.name %></p>
-  <p><%= publication.content.html_safe %></p>
-  <div class="row">
-    <%#= link_to 'Show', publication, class: 'btn btn-outline-info mx-2' %>
-    <%= link_to 'Editar', edit_publication_path(publication), class: 'btn btn-outline-warning mx-2' %>
-    <%= link_to 'Excluir', publication, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-danger mx-2' %>
+<div class="publi-container">
+  <div class="author">
+    <span class="name"><%= publication.user.name %></span>
+    <span class="ej"><%= publication.user.ej.name %></span>
   </div>
+  <div class="publi-box">
 
-  <div id="new-comment-container<%= publication.id %>">
-    <%= render 'comments/form', comment: Comment.new, publication_id: publication.id %>
-  </div>
-  <div id="comments-container<%= publication.id %>">
-    <%= render publication.comments %>
-  </div>
+    <div class="dropdown">
+      <button class="publi-options" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%= fa_icon "chevron-down" %>
+      </button>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+        <%= link_to 'Editar', edit_publication_path(publication), class: 'dropdown-item' %>
+        <%= link_to 'Excluir', publication, method: :delete, data: { confirm: 'Você tem certeza que quer excluir?' }, class: 'dropdown-item' %>
+      </div>
+    </div>
 
+    <h5 class="title"><%= publication.title %></h5>
+    <p class="content"> <!-- Esse código a seguir define o Ver mais -->
+      <% if publication.content.html_safe.length > 250 %>
+        <%= Nokogiri::HTML(CGI.unescapeHTML(truncate(publication.content.html_safe, length: 250))).content %>
+        <%= link_to 'Ver mais', '', class: "read-more read-more-#{publication.id}" %>
+        <script>
+          $('.read-more-<%= publication.id %>').on('click', function(e) {
+            e.preventDefault()
+            $(this).parent().html('<%= escape_javascript publication.content.html_safe %>')
+          })
+        </script>
+      <% else %>
+        <%= publication.content.html_safe %>
+      <% end %>
+    </p>
+
+    <div id="new-comment-container<%= publication.id %>">
+      <%= render 'comments/form', comment: Comment.new, publication_id: publication.id %>
+    </div>
+    <div id="comments-container<%= publication.id %>">
+      <%= render publication.comments %>
+    </div>
+  </div>
 </div>
