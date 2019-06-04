@@ -20,6 +20,8 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'devise'
+gem "font-awesome-rails"
+gem "trix-rails", require: 'trix'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

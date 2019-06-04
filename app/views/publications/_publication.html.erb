@@ -1,0 +1,54 @@
+<div class="publi-container">
+  <div class="author">
+    <span class="name"><%= publication.user.name %></span>
+    <span class="ej"><%= publication.user.ej.name %></span>
+    <span class="date"><%= translate(time_ago_in_words(publication.created_at)) %></span>
+  </div>
+  <div class="publi-box">
+
+    <div class="dropdown">
+      <button class="publi-options" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%= fa_icon "chevron-down" %>
+      </button>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+        <%= link_to 'Editar', edit_publication_path(publication), class: 'dropdown-item' %>
+        <%= link_to 'Excluir', publication, method: :delete, data: { confirm: 'Você tem certeza que quer excluir?' }, class: 'dropdown-item' %>
+      </div>
+    </div>
+
+    <h5 class="title"><%= publication.title %></h5>
+    <p class="content"> <!-- Esse código a seguir define o Ver mais -->
+      <% if publication.content.html_safe.length > 250 %>
+        <%= Nokogiri::HTML(CGI.unescapeHTML(truncate(publication.content.html_safe, length: 250))).content %>
+        <%= link_to 'Ver mais', '', class: "read-more read-more-#{publication.id}" %>
+        <script>
+          $('.read-more-<%= publication.id %>').on('click', function(e) {
+            e.preventDefault()
+            $(this).parent().html('<%= escape_javascript publication.content.html_safe %>')
+          })
+        </script>
+      <% else %>
+        <%= publication.content.html_safe %>
+      <% end %>
+    </p>
+
+    <% unless current_page?(publication_path(publication)) %>
+      <%= link_to publication_path(publication), class: "publi-answers" do %>
+        <%= tam = publication.comments.length %>
+        <% if tam == 1 %>
+          resposta
+        <% else %>
+          respostas
+        <% end %>
+      <% end %>
+      </div>
+    <% else %>
+      </div>
+      <div class="new-comment-container" id="new-comment-container<%= publication.id %>">
+        <%= render 'comments/form', comment: Comment.new, publication_id: publication.id %>
+      </div>
+      <div class="comments-container" id="comments-container<%= publication.id %>">
+        <%= render publication.comments %>
+      </div>
+    <% end %>
+</div>

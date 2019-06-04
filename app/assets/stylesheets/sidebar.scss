@@ -1,0 +1,31 @@
+.sidebar {
+
+    position: fixed;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Arima Madurai', cursive;
+
+    top: 5rem;
+    width: 18vw;
+    height: 100%;
+    background-color: #ef818e;
+
+    padding: 3rem 1rem;
+    
+    .user-pic {
+        border-radius: 100%;
+        width: 6rem;
+        height: 6rem;
+        background-color: #DDD;
+
+        background-image: url("default-user.png");
+        background-size: contain;
+    }
+
+    .user-name {
+        display: flex;
+        flex-direction: column;
+    }
+
+}
