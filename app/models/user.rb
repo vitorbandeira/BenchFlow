@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   belongs_to :ej
   has_many :publications, dependent: :nullify
+  has_many :comments, dependent: :nullify
 end
