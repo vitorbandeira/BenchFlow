@@ -5,7 +5,8 @@ class PublicationsController < ApplicationController
   # GET /publications
   # GET /publications.json
   def index
-    @publications = Publication.all
+    @search = Publication.search(params[:q])
+    @publications = @search.result
   end
 
   # GET /publications/1
