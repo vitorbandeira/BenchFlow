@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://www.rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.0'
@@ -22,6 +22,8 @@ gem 'simple_form'
 gem 'devise'
 gem "font-awesome-rails"
 gem "trix-rails", require: 'trix'
+gem 'ransack', github: 'activerecord-hackery/ransack'   # gem for searching
+
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
