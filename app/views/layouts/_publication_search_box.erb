@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row mt-4">
+        <%= search_form_for @search do |f| %>
+        <div class="col-5">
+            <%= f.text_field :title_or_content_cont, class: "radius-left expand", placeholder: "Busque aqui uma publicação" %>
+        </div>
+        <div class="col">
+            <%= f.submit "Search", class: "radius-right button" %>
+        </div>
+        <% end %>
+    </div>
+</div>
