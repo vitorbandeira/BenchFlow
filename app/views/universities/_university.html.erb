@@ -1,0 +1,12 @@
+<div class="card" style="width: 20rem;">
+  <div class="card-header">
+    <h4><%= university.name %></h4>
+  </div>
+  <div class="card-body">
+    <h5>EJs:</h5>
+    <%= render university.ejs %>
+  </div>
+  <div class="card-footer">
+    <%= link_to "Editar", edit_university_path(university), class:"btn btn-outline-secondary" %>
+  </div>
+</div>

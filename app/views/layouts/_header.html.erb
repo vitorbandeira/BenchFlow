@@ -9,17 +9,22 @@
         <div class="header-section">
             <%= link_to 'MEJ', root_path, class: "header-link", id: "mej-link" %>
         </div>
+    </div>
+    
+    <div class="header-search">
         <%= render "/layouts/publication_search_box" %>    
     </div>
     <div class="header-end">
-        
+      
         <div class="dropdown">
             <button class="header-link bars" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <%= fa_icon "bars" %> 
             </button>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                 <% if current_user %>
+                    <%= link_to 'Backoffice', backoffice_path, method: :get, class: "dropdown-item" if current_user.admin %>
                     <%= link_to 'Sair da conta', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+
                 <% else %>
                     <%= link_to 'Entrar na conta', new_user_session_path, class: "dropdown-item"  %>
                 <% end %>

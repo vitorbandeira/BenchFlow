@@ -31,6 +31,7 @@ class EjsController < ApplicationController
       if @ej.save
         format.html { redirect_to @ej, notice: 'Ej was successfully created.' }
         format.json { render :show, status: :created, location: @ej }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @ej.errors, status: :unprocessable_entity }

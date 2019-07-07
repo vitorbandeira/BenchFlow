@@ -1,0 +1,66 @@
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-resumo-tab" data-toggle="tab" href="#nav-resumo" role="tab" aria-controls="nav-resumo" aria-selected="true">Resumo</a>
+    <a class="nav-item nav-link" id="nav-university-tab" data-toggle="tab" href="#nav-university" role="tab" aria-controls="nav-university" aria-selected="false">Universidades</a>
+    <a class="nav-item nav-link" id="nav-ej-tab" data-toggle="tab" href="#nav-ej" role="tab" aria-controls="nav-ej" aria-selected="false">EJs</a>
+  </div>
+</nav>
+<div class="tab-content p-2" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-resumo" role="tabpanel" aria-labelledby="nav-resumo-tab">
+    <div class="row d-flex justify-content-between px-5">
+      <div class="card" style="width: 20rem;">
+        <div class="card-header">
+          <h4>Usuários</h4>
+        </div>
+        <div class="card-body">
+          <p>Total: <%= @users.size %></p>
+          <p>Último: <%= @users.last.name %> - <%= @users.last.ej.name %></p>
+          
+        </div>
+      </div>
+      <div class="card" style="width: 20rem;">
+        <div class="card-header">
+          <h4>Universidades</h4>
+        </div>
+        <div class="card-body">
+          <p>Total: <%= @universities.size %></p>
+          <p>Último: <%= @universities.last.name %></p>
+        </div>
+      </div>
+      <div class="card" style="width: 20rem;">
+        <div class="card-header">
+          <h4>Empresas Juniores</h4>
+        </div>
+        <div class="card-body">
+          <p>Total: <%= @ejs.size %></p>
+          <p>Último: <%= @ejs.last.name %></p>
+        </div>
+      </div>
+      <div class="card" style="width: 20rem;">
+        <div class="card-header">
+          <h4>Publicações</h4>
+        </div>
+        <div class="card-body">
+          <p>Total: <%= @publications.size %></p>
+          <p>Último: <%= @publications.last.title %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-pane fade" id="nav-university" role="tabpanel" aria-labelledby="nav-university-tab">
+    <div class="container" id="universities">
+      <%= render @universities %>
+    </div>
+  </div>
+  
+  <div class="tab-pane fade" id="nav-ej" role="tabpanel" aria-labelledby="nav-ej-tab">
+    <div class="container" id="ejs">
+      <%= render @ejs %>
+    </div>
+    <div id="ej-form">
+      <%= link_to "Nova EJ", new_ej_path, remote: true %>
+    </div>
+  </div>
+</div>
+
