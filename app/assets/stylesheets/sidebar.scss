@@ -26,6 +26,26 @@
     .user-name {
         display: flex;
         flex-direction: column;
+        color: white;
+        text-align: center;
     }
 
+    .tags {
+        color: white;
+        margin-top: 3rem;
+        ul {
+            list-style-type: disclosure-closed;
+            li {
+                a {
+                    text-decoration: none;
+                    color: white;
+                }
+
+                a:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    
 }

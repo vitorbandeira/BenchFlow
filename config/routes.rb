@@ -8,11 +8,13 @@ Rails.application.routes.draw do
 
   root to: 'welcome#index'
   
+  get 'tag/:id', to: "publications#by_tags", as: "by_tags"
   #backoffice
   scope :backoffice do
     get "/", to: "backoffice#index", as: :backoffice
     resources :ejs
     resources :universities
+    resources :tags
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

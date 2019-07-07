@@ -9,6 +9,11 @@ class PublicationsController < ApplicationController
     @publications = @search.result
   end
 
+  def by_tags
+    @tag_name = params[:id]
+    @publicationss = Tag.find_by(name: @tag_name).publications
+  end
+
   # GET /publications/1
   # GET /publications/1.json
   def show
@@ -71,6 +76,6 @@ class PublicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def publication_params
-      params.require(:publication).permit(:title, :content, :user_id)
+      params.require(:publication).permit(:title, :content, :user_id, :publication_type, :tag_ids => [])
     end
 end

@@ -3,6 +3,17 @@
     <%= f.text_field :title, class: "form-title", placeholder: "Título" %>
     <%= f.trix_editor :content, class: "form-text", placeholder: "Compartilhe algo..." %>
     <%= f.association :user, as: :hidden, input_html: { value: current_user.id } %>
-    <%= f.button :submit, "Publicar", class: "btn btn-success" %>
+    <div class="row px-5 pb-2 justify-content-between">
+      <%= f.input :publication_type, label: "", as: :radio_buttons, collection: [['0', 'Gestão'], ['1', 'Técnico']], label_method: :second, value_method: :first, wrapper_html: { class: 'form-check form-check-inline col-4' } %>
+      <div class="dropdown col-5">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categorias
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <%= f.association :tags, label: "Escolha uma opção", input_html: { class: 'dropdown-item' }  %>
+        </div>
+      </div>
+      <%= f.button :submit, "Publicar", class: "btn btn-success", wrapper_html: { class: 'col-3' }  %>
+    </div>
   </div>
 <% end %>

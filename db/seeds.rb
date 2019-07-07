@@ -26,4 +26,8 @@ u2 = User.create(   name: 'User',
                     ej_id: ej1.id)
 
 Publication.destroy_all
-p1 = Publication.create!(title: "First Post!!!", content: "Testaaaaaando esse poooooosssttttt.", user: u1)
+p1 = Publication.create!(title: "First Post!!!", content: "Testaaaaaando esse poooooosssttttt.", user: u1, publication_type: 0)
+
+Tag.destroy_all
+Tag.create!(name: "Administrativo")
+Tag.create!(name: "Financeiro")

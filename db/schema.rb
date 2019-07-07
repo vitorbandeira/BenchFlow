@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_04_010749) do
+ActiveRecord::Schema.define(version: 2019_07_07_183954) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
@@ -40,13 +40,29 @@ ActiveRecord::Schema.define(version: 2019_06_04_010749) do
     t.index ["university_id"], name: "index_ejs_on_university_id"
   end
 
+  create_table "publication_tags", force: :cascade do |t|
+    t.integer "publication_id"
+    t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["publication_id"], name: "index_publication_tags_on_publication_id"
+    t.index ["tag_id"], name: "index_publication_tags_on_tag_id"
+  end
+
   create_table "publications", force: :cascade do |t|
     t.string "title"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.integer "publication_type"
     t.index ["user_id"], name: "index_publications_on_user_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "universities", force: :cascade do |t|

@@ -89,6 +89,8 @@ pre {
 .publi-form {
     margin-top: 0;
     width: 100%;
+    background-color: white;
+    border-radius: 5px;
 
     textarea:focus, input:focus{
         outline: none;
@@ -123,14 +125,15 @@ pre {
     }
 
     .btn {
-        position: relative;
-        float: right;
-        bottom: 3.8rem;
+        // position: relative;
+        // float: right;
+        // bottom: 3.8rem;
         right: 0.6rem;
+        align-self: center;
     }
 
     .btn-light {
-        right: 1rem;
+        // right: 1rem;
     }
     trix-toolbar {
         .trix-button-group {
