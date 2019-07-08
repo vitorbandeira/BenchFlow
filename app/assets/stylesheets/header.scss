@@ -66,6 +66,9 @@
     }
 
     .header-end {
+        width: 35%;
+        display: flex;
+        justify-content: space-between;
         padding: 2rem;
         align-self: center;
         font-size: 1.35rem;
@@ -79,6 +82,26 @@
 
         .dropdown-item {
             color: #d8495a;
+        }
+    }
+
+    .search-group {
+        .form-control {
+            width: initial;
+            display: initial;
+            padding-right: 2.5rem;
+            border-radius: 10px;
+        }
+
+        .search-button {
+            background-color: transparent;
+            position: relative;
+            right: 2.8rem;
+            top: 0.1rem;
+            
+            .icon {
+                color: #999;
+            }
         }
     }
 
