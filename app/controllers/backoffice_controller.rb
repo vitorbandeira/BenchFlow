@@ -8,6 +8,7 @@ def index
   @ejs = Ej.all
   @ej = Ej.new
   @university = University.new
+  @tag = Tag.new
 end
 
 end

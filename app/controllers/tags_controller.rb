@@ -30,6 +30,7 @@ class TagsController < ApplicationController
       if @tag.save
         format.html { redirect_to @tag, notice: 'Tag was successfully created.' }
         format.json { render :show, status: :created, location: @tag }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @tag.errors, status: :unprocessable_entity }
@@ -44,6 +45,7 @@ class TagsController < ApplicationController
       if @tag.update(tag_params)
         format.html { redirect_to @tag, notice: 'Tag was successfully updated.' }
         format.json { render :show, status: :ok, location: @tag }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @tag.errors, status: :unprocessable_entity }
@@ -58,6 +60,7 @@ class TagsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to tags_url, notice: 'Tag was successfully destroyed.' }
       format.json { head :no_content }
+      format.js
     end
   end
 

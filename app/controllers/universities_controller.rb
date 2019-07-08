@@ -31,6 +31,7 @@ class UniversitiesController < ApplicationController
       if @university.save
         format.html { redirect_to @university, notice: 'University was successfully created.' }
         format.json { render :show, status: :created, location: @university }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @university.errors, status: :unprocessable_entity }
@@ -45,6 +46,7 @@ class UniversitiesController < ApplicationController
       if @university.update(university_params)
         format.html { redirect_to @university, notice: 'University was successfully updated.' }
         format.json { render :show, status: :ok, location: @university }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @university.errors, status: :unprocessable_entity }
@@ -59,6 +61,7 @@ class UniversitiesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to universities_url, notice: 'University was successfully destroyed.' }
       format.json { head :no_content }
+      format.js
     end
   end
 

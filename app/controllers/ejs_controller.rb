@@ -46,6 +46,7 @@ class EjsController < ApplicationController
       if @ej.update(ej_params)
         format.html { redirect_to @ej, notice: 'Ej was successfully updated.' }
         format.json { render :show, status: :ok, location: @ej }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @ej.errors, status: :unprocessable_entity }
@@ -60,6 +61,7 @@ class EjsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to ejs_url, notice: 'Ej was successfully destroyed.' }
       format.json { head :no_content }
+      format.js
     end
   end
 

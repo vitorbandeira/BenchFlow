@@ -3,6 +3,7 @@
     <a class="nav-item nav-link active" id="nav-resumo-tab" data-toggle="tab" href="#nav-resumo" role="tab" aria-controls="nav-resumo" aria-selected="true">Resumo</a>
     <a class="nav-item nav-link" id="nav-university-tab" data-toggle="tab" href="#nav-university" role="tab" aria-controls="nav-university" aria-selected="false">Universidades</a>
     <a class="nav-item nav-link" id="nav-ej-tab" data-toggle="tab" href="#nav-ej" role="tab" aria-controls="nav-ej" aria-selected="false">EJs</a>
+    <a class="nav-item nav-link" id="nav-tag-tab" data-toggle="tab" href="#nav-tag" role="tab" aria-controls="nav-tag" aria-selected="false">Tags</a>
   </div>
 </nav>
 <div class="tab-content p-2" id="nav-tabContent">
@@ -49,17 +50,61 @@
   </div>
 
   <div class="tab-pane fade" id="nav-university" role="tabpanel" aria-labelledby="nav-university-tab">
-    <div class="container" id="universities">
-      <%= render @universities %>
+    <div class="container">
+      <table class="table" id="universities">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Quantidade de EJs Cadastradas</th>
+            <th colspan="2">Gerenciar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @universities %>
+        </tbody>
+      </table>
+    </div>
+    <div id="university-form">
+      <%= link_to "Nova Universidade", new_university_path, remote: true %>
     </div>
   </div>
   
   <div class="tab-pane fade" id="nav-ej" role="tabpanel" aria-labelledby="nav-ej-tab">
-    <div class="container" id="ejs">
-      <%= render @ejs %>
+    <div class="container">
+    <table class="table" id="ejs">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Quantidade de Membros Cadastrados</th>
+            <th colspan="2">Gerenciar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @ejs %>
+        </tbody>
+      </table>
     </div>
     <div id="ej-form">
       <%= link_to "Nova EJ", new_ej_path, remote: true %>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="nav-tag" role="tabpanel" aria-labelledby="nav-tag-tab">
+    <div class="container">
+      <table class="table" id="tags">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Quantidade de Publicações</th>
+            <th colspan="2">Gerenciar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @all_tags %>
+        </tbody>
+      </table>
+    </div>
+    <div id="tag-form">
+      <%= link_to "Nova tag", new_tag_path, remote: true %>
     </div>
   </div>
 </div>
