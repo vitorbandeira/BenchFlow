@@ -16,6 +16,13 @@
       </div>
     </div>
 
+    <div class="publi-tags">
+      <span class="badge badge-secondary"><%= publication.category %></span>
+      <% publication.tags.each do |tag| %>
+        <span class="badge badge-danger"><%= tag.name %></span>
+      <% end %>
+    </div>
+
     <h5 class="title"><%= publication.title %></h5>
     <p class="content"> <!-- Esse código a seguir define o Ver mais -->
       <% if publication.content.html_safe.length > 250 %>
@@ -31,11 +38,6 @@
         <%= publication.content.html_safe %>
       <% end %>
     </p>
-    <span class="badge badge-secondary"><%= publication.category %></span>
-    <% publication.tags.each do |tag| %>
-      <span class="badge badge-danger"><%= tag.name %></span>
-    <% end %>
-    <br>
     <% unless current_page?(publication_path(publication)) %>
       <%= link_to publication_path(publication), class: "publi-answers" do %>
         <%= tam = publication.comments.length %>
