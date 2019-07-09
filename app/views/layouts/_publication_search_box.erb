@@ -1,0 +1,8 @@
+<%= search_form_for @search do |f| %>
+    <div class="search-group">
+        <%= f.text_field :title_or_content_cont, class: "form-control", placeholder: "Buscar um bench" %>     
+        <%= f.button :submit, class: "btn search-button" do %>
+            <%= fa_icon "search", class: "icon" %>
+        <% end %>
+    </div>
+<% end %>

@@ -1,0 +1,15 @@
+<div class="sidebar">
+    <div class="user-pic"></div>
+    <div class="user-name">
+        <p class="name"><%= current_user.name %></p>
+        <p class="ej"><%= current_user.ej.name %></p>
+    </div>
+    <div class="tags">
+        <h4> Categorias: </h4>
+        <ul>
+            <% @all_tags.each do |tag|%>
+                <li><%= link_to "#{tag.name} <span class='badge badge-pill'>#{tag.publications.size}</span>".html_safe, by_tags_path(tag.name) %></li>
+            <% end %>
+        </ul>
+    </div>
+</div>

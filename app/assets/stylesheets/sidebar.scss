@@ -1,0 +1,85 @@
+.sidebar {
+
+    position: fixed;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Arima Madurai', cursive;
+
+    top: 5rem;
+    width: 18vw;
+    height: 100%;
+    background-color: #ef818e;
+
+    padding: 3rem 1rem;
+    
+    .user-pic {
+        border-radius: 100%;
+        width: 6rem;
+        height: 6rem;
+        background-color: #DDD;
+
+        background-image: url("default-user.png");
+        background-size: contain;
+    }
+
+    .user-name {
+        display: flex;
+        flex-direction: column;
+        color: white;
+        text-align: center;
+
+        p {
+            margin-bottom: -0.5rem;
+        }
+        .name {
+            font-size: 1.7rem;
+            font-weight: bold;
+            margin-top: 0.2rem;
+        }
+        .ej {
+            font-family: 'Roboto', sans-serif;
+            font-weight: lighter;
+            font-size: 1.2rem;
+        }
+    }
+
+    .tags {
+        color: white;
+        margin-top: 3rem;
+        width: 85%;
+
+
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            li {
+                background-color: #f29ea8;
+                border-radius: 1rem;
+                padding: 0.1rem 0.6rem;
+                margin-bottom: 0.4rem;
+                
+                a {
+                    text-decoration: none;
+                    color: white;
+                }
+
+                a:hover {
+                    text-decoration: none;
+                }
+
+                .badge-pill {
+                    background-color: #f8b4bc;
+                    position: relative;
+                    bottom: 2px;
+                    left: 0.1rem;
+                }
+            }
+            li:hover {
+                background-color: #f8b4bc;
+            }
+        }
+    }
+    
+}

@@ -1,0 +1,5 @@
+<h2><%= @tag_name %></h2>
+<% if @publicationss.size == 0 %>
+    Ainda não há nenhuma publicação com essa categoria. Que tal <%= link_to 'fazer uma', root_path %>?
+<% end %>
+<%= render @publicationss %>

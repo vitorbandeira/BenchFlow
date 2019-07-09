@@ -1,0 +1,6 @@
+<tr>
+  <td><%= tag.name %></td>
+  <td><%= tag.publications.size %></td>
+  <td><%= link_to "Editar", edit_tag_path(tag), class:"btn btn-outline-secondary" %></td>
+  <td><%= link_to "Excluir", tag_path(tag),method: :delete, remote: true, class:"btn btn-outline-secondary delete-tag" %></td>
+</tr>

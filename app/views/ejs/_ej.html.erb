@@ -1,0 +1,6 @@
+<tr>
+  <td><%= ej.name %></td>
+  <td><%= ej.users.size %></td>
+  <td><%= link_to "Editar", edit_ej_path(ej), class:"btn btn-outline-secondary" %></td>
+  <td><%= link_to "Excluir", ej_path(ej),method: :delete, remote: true, class:"btn btn-outline-secondary delete-ej" %></td>
+</tr>

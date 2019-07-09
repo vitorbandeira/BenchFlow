@@ -1,0 +1,7 @@
+<tr>
+  <td><%= university.name %></td>
+  <td><%= university.ejs.size %></td>
+  <td><%= link_to "Editar", edit_university_path(university), class:"btn btn-outline-secondary" %></td>
+  <td><%= link_to "Excluir", university_path(university),method: :delete, remote: true, class:"btn btn-outline-secondary delete-university" %></td>
+</tr>
+

@@ -1,0 +1,16 @@
+
+<%= simple_form_for comment, remote: true do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.label "Adicione um comentário", class: "label-comment" %>
+    <%= f.trix_editor :content %>
+    <%= f.association :publication, input_html: { value: publication_id }, as: :hidden %>
+    <%= f.association :user, input_html: { value: current_user.id }, as: :hidden %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Comentar", class: 'btn btn-info' %>
+  </div>
+<% end %>

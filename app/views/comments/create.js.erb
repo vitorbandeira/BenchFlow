@@ -1,0 +1,3 @@
+console.log("ajax working coment created");
+$('#new-comment-container<%= @publication.id %>').html("<%= j render 'comments/form', comment: Comment.new, publication_id: @publication.id %>")
+$('#comments-container<%= @publication.id %>').append("<%= j render @publication.comments.last %>")

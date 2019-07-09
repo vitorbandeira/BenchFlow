@@ -1,0 +1,4 @@
+<%= render file: "publications/new", locals: {publication: @publication, url: publications_path, method: :post} %>
+<p class="publi-title"> Publicações recentes da sua EJ </p>
+<hr class="publi-divider">
+<%= render @publications %>
