@@ -28,22 +28,56 @@
         flex-direction: column;
         color: white;
         text-align: center;
+
+        p {
+            margin-bottom: -0.5rem;
+        }
+        .name {
+            font-size: 1.7rem;
+            font-weight: bold;
+            margin-top: 0.2rem;
+        }
+        .ej {
+            font-family: 'Roboto', sans-serif;
+            font-weight: lighter;
+            font-size: 1.2rem;
+        }
     }
 
     .tags {
         color: white;
         margin-top: 3rem;
+        width: 85%;
+
+
+
         ul {
-            list-style-type: disclosure-closed;
+            list-style-type: none;
+            padding: 0;
             li {
+                background-color: #f29ea8;
+                border-radius: 1rem;
+                padding: 0.1rem 0.6rem;
+                margin-bottom: 0.4rem;
+                
                 a {
                     text-decoration: none;
                     color: white;
                 }
 
                 a:hover {
-                    text-decoration: underline;
+                    text-decoration: none;
                 }
+
+                .badge-pill {
+                    background-color: #f8b4bc;
+                    position: relative;
+                    bottom: 2px;
+                    left: 0.1rem;
+                }
+            }
+            li:hover {
+                background-color: #f8b4bc;
             }
         }
     }
