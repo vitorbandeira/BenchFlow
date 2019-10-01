@@ -6,38 +6,48 @@
   </div>
   <div class="publi-box">
 
-    <div class="dropdown">
-      <button class="publi-options" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <%= fa_icon "chevron-down" %>
-      </button>
-      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-        <%= link_to 'Editar', edit_publication_path(publication), class: 'dropdown-item' %>
-        <%= link_to 'Excluir', publication, method: :delete, data: { confirm: 'Você tem certeza que quer excluir?' }, class: 'dropdown-item' %>
+    <div class="info">
+      
+      <div class="publi-tags">
+        <span class="badge badge-secondary"><%= publication.category %></span>
+        <% publication.tags.each do |tag| %>
+          <span class="badge badge-danger"><%= tag.name %></span>
+        <% end %>
       </div>
+
+      <h5 class="title"><%= publication.title %></h5>
+      <p class="content"> <!-- Esse código a seguir define o Ver mais -->
+        <% if publication.content.html_safe.length > 250 %>
+          <%= Nokogiri::HTML(CGI.unescapeHTML(truncate(publication.content.html_safe, length: 250))).content %>
+          <%= link_to 'Ver mais', '', class: "read-more read-more-#{publication.id}" %>
+          <script>
+            $('.read-more-<%= publication.id %>').on('click', function(e) {
+              e.preventDefault()
+              $(this).parent().html('<%= escape_javascript publication.content.html_safe %>')
+            })
+          </script>
+        <% else %>
+          <%= publication.content.html_safe %>
+        <% end %>
+      </p>
     </div>
 
-    <div class="publi-tags">
-      <span class="badge badge-secondary"><%= publication.category %></span>
-      <% publication.tags.each do |tag| %>
-        <span class="badge badge-danger"><%= tag.name %></span>
+    <div class="image">
+      <% publication.files.each do |file| %>
+        <%= image_tag(ActionController::Base.helpers.cl_image_path(file.key, width: 200, height: 200, crop: "fill", gravity: "center")) %>
       <% end %>
     </div>
 
-    <h5 class="title"><%= publication.title %></h5>
-    <p class="content"> <!-- Esse código a seguir define o Ver mais -->
-      <% if publication.content.html_safe.length > 250 %>
-        <%= Nokogiri::HTML(CGI.unescapeHTML(truncate(publication.content.html_safe, length: 250))).content %>
-        <%= link_to 'Ver mais', '', class: "read-more read-more-#{publication.id}" %>
-        <script>
-          $('.read-more-<%= publication.id %>').on('click', function(e) {
-            e.preventDefault()
-            $(this).parent().html('<%= escape_javascript publication.content.html_safe %>')
-          })
-        </script>
-      <% else %>
-        <%= publication.content.html_safe %>
-      <% end %>
-    </p>
+    <div class="dropdown">
+        <button class="publi-options" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= fa_icon "chevron-down" %>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+          <%= link_to 'Editar', edit_publication_path(publication), class: 'dropdown-item' %>
+          <%= link_to 'Excluir', publication, method: :delete, data: { confirm: 'Você tem certeza que quer excluir?' }, class: 'dropdown-item' %>
+        </div>
+      </div>
+
     <% unless current_page?(publication_path(publication)) %>
       <%= link_to publication_path(publication), class: "publi-answers" do %>
         <%= tam = publication.comments.length %>
@@ -47,9 +57,7 @@
           respostas
         <% end %>
       <% end %>
-      </div>
     <% else %>
-      </div>
       <div class="new-comment-container" id="new-comment-container<%= publication.id %>">
         <%= render 'comments/form', comment: Comment.new, publication_id: publication.id %>
       </div>
@@ -57,4 +65,6 @@
         <%= render publication.comments %>
       </div>
     <% end %>
+
+  </div>
 </div>

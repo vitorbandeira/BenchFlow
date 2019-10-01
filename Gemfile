@@ -29,6 +29,12 @@ gem "font-awesome-rails"
 gem "trix-rails", require: 'trix'
 gem 'ransack', github: 'activerecord-hackery/ransack'   # gem for searching
 
+# Uploader
+gem "figaro"
+gem 'cloudinary', require: false
+gem 'activestorage-cloudinary-service'
+gem "paperclip"
+gem 'paperclip-cloudinary'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

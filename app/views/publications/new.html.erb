@@ -20,6 +20,9 @@
             <%= f.association :tags, label: "", input_html: { class: 'dropdown-item' }  %>
           </div>
         </div>
+
+        <%= f.input :files, multiple: true %>
+        
       </div>
       <%= f.button :submit, "Publicar", class: "btn btn-success" %>
     </div>

@@ -32,3 +32,5 @@
 # ignore idea folder from jetbrains products
 
 .idea/
+# Ignore application configuration
+/config/application.yml

@@ -5,6 +5,8 @@ class Publication < ApplicationRecord
   has_many :publication_tags, dependent: :destroy
   has_many :tags, through: :publication_tags
 
+  has_many_attached :files
+  
   def category
     case self.publication_type 
     when 0

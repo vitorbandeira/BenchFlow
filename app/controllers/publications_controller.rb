@@ -76,6 +76,6 @@ class PublicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def publication_params
-      params.require(:publication).permit(:title, :content, :user_id, :publication_type, :tag_ids => [])
+      params.require(:publication).permit(:title, :content, :user_id, :files[], :publication_type, :tag_ids => [])
     end
 end
