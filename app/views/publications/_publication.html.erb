@@ -40,7 +40,8 @@
       <% end %>
     </div>
 
-    <div class="dropdown">
+    <% if current_user.admin? %>
+      <div class="dropdown">
         <button class="publi-options" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <%= fa_icon "chevron-down" %>
         </button>
@@ -49,6 +50,7 @@
           <%= link_to 'Excluir', publication, method: :delete, data: { confirm: 'Você tem certeza que quer excluir?' }, class: 'dropdown-item' %>
         </div>
       </div>
+    <% end %>
 
     <% unless current_page?(publication_path(publication)) %>
       <%= link_to publication_path(publication), class: "publi-answers" do %>
