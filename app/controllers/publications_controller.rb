@@ -1,5 +1,4 @@
 class PublicationsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_publication, only: [:show, :edit, :update, :destroy]
 
   # GET /publications
@@ -32,13 +31,12 @@ class PublicationsController < ApplicationController
   # POST /publications.json
   def create
     @publication = Publication.new(publication_params)
-
     respond_to do |format|
       if @publication.save
         format.html { redirect_to root_path, notice: 'Publicação foi criada com sucesso.' }
         format.json { render :show, status: :created, location: @publication }
       else
-        format.html { redirect_to root_path }
+        format.html { redirect_to root_path, alert: 'Não foi possível salvar sua publicação.' }
         format.json { render json: @publication.errors, status: :unprocessable_entity }
       end
     end
@@ -76,6 +74,6 @@ class PublicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def publication_params
-      params.require(:publication).permit(:title, :content, :user_id, :files[], :publication_type, :tag_ids => [])
+      params.require(:publication).permit(:title, :content, :user_id, :files, :publication_type, tag_ids:[])
     end
 end

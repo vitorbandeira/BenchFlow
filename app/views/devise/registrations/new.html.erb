@@ -15,6 +15,9 @@
       <%= f.input :email,
                   required: true,
                   input_html: { autocomplete: "email" }%>
+      <%= f.association :ej,
+                  label: 'Empresa Júnior',
+                  required: true %>
       <%= f.input :password,
                   required: true,
                   label: "Senha",

@@ -1,5 +1,4 @@
 class EjsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_ej, only: [:show, :edit, :update, :destroy]
 
   # GET /ejs

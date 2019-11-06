@@ -1,6 +1,6 @@
 <%= simple_form_for(@publication) do |f| %>
   <div class="publi-form">
-    <%= f.text_field :title, class: "form-title", placeholder: "Título" %>
+    <%= f.text_field :title, class: "form-title", placeholder: "Título", autocomplete: "off" %>
     <%= f.trix_editor :content, class: "form-text", placeholder: "Compartilhe algo..." %>
     <%= f.association :user, as: :hidden, input_html: { value: current_user.id } %>
     <div class="publi-fields">
@@ -12,14 +12,8 @@
           <%= f.label :publication_type, "Técnico", value: "1" %>
         </div>
         
-        <div class="dropdown">
-          <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span id="selected">Categoria</span>
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <%= f.association :tags, label: "", input_html: { class: 'dropdown-item' }  %>
-          </div>
-        </div>
+        
+        <%= f.association :tags, label:'', as: :check_boxes %>
 
         <%= f.input :files, multiple: true %>
         
@@ -28,9 +22,3 @@
     </div>
   </div>
 <% end %>
-
-<script>
-  $('.dropdown-menu option').click(function(){
-    $('#selected').text($(this).text());
-  });
-</script>
