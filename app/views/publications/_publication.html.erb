@@ -35,7 +35,7 @@
     <div class="image">
       <% publication.files.each do |file| %>
         <a href="<%= cl_image_path(file.key, flags: "attachment") %>">
-          <%= cl_image_tag(file.key, width: 200, height: 200, crop: "fill", gravity: "center") %>
+          <%= cl_image_tag(file.key, format: "jpg", width: 200, height: 200, crop: "fill", gravity: "center") %>
         </a>
       <% end %>
     </div>

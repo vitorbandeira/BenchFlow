@@ -13,9 +13,9 @@
         </div>
         
         
-        <%= f.association :tags, label:'', as: :check_boxes %>
+        <%= f.association :tags, as: :check_boxes %>
 
-        <%= f.input :files, multiple: true %>
+        <%= f.input :files, label:"Arquivos", multiple: true %>
         
       </div>
       <%= f.button :submit, "Publicar", class: "btn btn-success" %>
