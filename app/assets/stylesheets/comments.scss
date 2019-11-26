@@ -18,6 +18,22 @@
 }
 
 .new-comment-container {
+    width: 100%;
+
+    #new_comment{
+        background-color: lightgray;
+        border-radius: 7px;
+
+        .label-comment{
+            margin-left: 1em;
+            margin-top: 0.5em;
+        }
+
+        input[type="submit"]{
+            margin: 1em;
+        }
+    }
+
     .label-comment {
         color: #da5767;
         font-family: "Arima Madurai", cursive;
@@ -48,7 +64,7 @@
     }
     
     trix-editor {
-        background-color: white;
+        background-color: lightgray;
         padding: 2.2rem 1rem 3rem;
         outline: none;
         border: none;
@@ -63,14 +79,17 @@
 
 .comments-container {
     margin-left: 10%;
-    width: 80%;
+    width: 100%;
 
     .comment-box {
+        background-color: lightgray;
         margin: 1.5rem 0;
+        border-radius: 7px;
 
         .author {
             color: #da5767;
             margin-bottom: 0.2rem;
+            margin-top: 1em;
             padding: 0 0.5rem;
             .name {
                 font-family: 'Arima Madurai', cursive;
@@ -91,7 +110,7 @@
             }
         }
         .comment-content {
-            background-color: white;
+            background-color: lightgray;
             padding: 1rem;
             border-radius: 10px;
 

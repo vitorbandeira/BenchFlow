@@ -1,12 +1,28 @@
-<h1>Editing Publication</h1>
+<h1>Edição de Publicação</h1>
 
 <%= simple_form_for(@publication) do |f| %>
    <div class="publi-form">
     <%= f.text_field :title, class: "form-title", placeholder: "Título" %>
     <%= f.trix_editor :content, class: "form-text", placeholder: "Compartilhe algo..." %>
     <%= f.association :user, as: :hidden, input_html: { value: current_user.id } %>
-    <%= f.button :submit, "Publicar", class: "btn btn-success" %>
-    <%= link_to 'Voltar', root_path, class: "btn btn-light" %>
+    <div class="publi-fields">
+      <div class="fields-head">
+        <div class="switch-field">
+          <%= f.radio_button :publication_type, '0', checked: true%>
+          <%= f.label :publication_type, "Gestão", value: "0"  %>
+          <%= f.radio_button :publication_type, '1'%>
+          <%= f.label :publication_type, "Técnico", value: "1" %>
+        </div>
+        
+        
+        <%= f.association :tags, as: :check_boxes %>
+
+        <%= f.input :files, label:"Arquivos", multiple: true %>
+        
+      </div>
+      <%= f.button :submit, "Publicar", class: "btn btn-success" %>
+      <%= link_to 'Voltar', root_path, class: "btn btn-light" %>
+    </div>
   </div>
 <% end %>
 
